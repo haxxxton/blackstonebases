@@ -1,0 +1,29 @@
+{
+	"parser": "babel-eslint",
+	"plugins": ["simple-import-sort", "prettier", "react", "react-hooks"],
+	"env": {
+		"browser": true
+	},
+	"extends": ["prettier", "plugin:react/recommended"],
+	"settings": {
+		"react": {
+			"version": "detect"
+		}
+	},
+	"rules": {
+		"simple-import-sort/sort": "error",
+		"prettier/prettier": "error",
+		"react/jsx-sort-props": [
+			2,
+			{
+				"ignoreCase": true,
+				"reservedFirst": true
+			}
+		],
+		"no-void": 0,
+		"no-undefined": "error",
+		"no-tabs": 0,
+		"react/display-name": 0,
+		"quote-props": [2, "as-needed"]
+	}
+}
