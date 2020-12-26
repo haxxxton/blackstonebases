@@ -103,7 +103,7 @@ const ExportModal = ({
 			</DialogContent>
 			<DialogActions>
 				<Button
-					color="primary"
+					color="secondary"
 					disabled={isExporting}
 					onClick={() => setIsExporting(!isExporting)}
 					variant="contained"

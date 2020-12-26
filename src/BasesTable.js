@@ -1,12 +1,18 @@
 import {
+	Box,
 	Button,
 	Checkbox,
+	Divider,
+	Grid,
+	Hidden,
 	Table,
 	TableBody,
 	TableCell,
 	TableHead,
 	TableRow,
+	Typography,
 } from '@material-ui/core';
+import { Details, DetailsTwoTone } from '@material-ui/icons';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
@@ -151,12 +157,23 @@ const BasesTable = ({ handleExport }) => {
 
 	return (
 		<React.Fragment>
+			<Hidden smUp>
+				<Box m={6} />
+			</Hidden>
+			<Grid container>
+				<Grid item xs={12}>
+					<Typography variant="h4">Automatic Generation</Typography>
+					<Divider variant="middle" />
+				</Grid>
+			</Grid>
 			<Table>
 				<TableHead>
 					<TableRow>
 						<TableCell>
 							<Checkbox
 								checked={exportedSets.length === boxes.length}
+								checkedIcon={<DetailsTwoTone />}
+								icon={<Details />}
 								onChange={({ target: { checked } }) => {
 									if (checked) {
 										setExportedSets(boxes);
@@ -166,9 +183,15 @@ const BasesTable = ({ handleExport }) => {
 								}}
 							/>
 						</TableCell>
-						<TableCell>Boxed Game</TableCell>
-						<TableCell>Size</TableCell>
-						<TableCell>Count</TableCell>
+						<TableCell>
+							<Typography variant="subtitle1">Boxed Game</Typography>
+						</TableCell>
+						<TableCell>
+							<Typography variant="subtitle1">Size</Typography>
+						</TableCell>
+						<TableCell>
+							<Typography variant="subtitle1">Count</Typography>
+						</TableCell>
 					</TableRow>
 				</TableHead>
 				<TableBody>
@@ -183,6 +206,8 @@ const BasesTable = ({ handleExport }) => {
 													checked={
 														!!exportedSets.find((set) => set.slug === box.slug)
 													}
+													checkedIcon={<DetailsTwoTone />}
+													icon={<Details />}
 													onChange={(e) => handleBoxCheck(e, box)}
 												/>
 											</TableCell>
@@ -200,7 +225,7 @@ const BasesTable = ({ handleExport }) => {
 				</TableBody>
 			</Table>
 			<Button
-				color="primary"
+				color="secondary"
 				disabled={exportedSets.length === 0}
 				fullWidth
 				onClick={() => {

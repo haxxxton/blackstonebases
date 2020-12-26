@@ -2,6 +2,7 @@ import {
 	Button,
 	ButtonGroup,
 	Checkbox,
+	Divider,
 	FormControlLabel,
 	Grid,
 	Slider,
@@ -32,28 +33,12 @@ const Form = ({
 }) => (
 	<Grid container>
 		<Grid item xs={12}>
-			<Typography gutterBottom>
-				Mask size - ({masks[maskSize].label})
-			</Typography>
-			<Grid container>
-				<Grid item xs={1} />
-				<Grid item xs={10}>
-					<Slider
-						marks={masks}
-						max={masks.length - 1}
-						min={0}
-						onChange={(_, value) => setMaskSize(value)}
-						onChangeCommitted={(_, value) => setMaskSize(value)}
-						step={null}
-						value={maskSize}
-						valueLabelDisplay={'auto'}
-					/>
-				</Grid>
-			</Grid>
+			<Typography variant="h4">Manual Generation</Typography>
 		</Grid>
 		<Grid item xs={12}>
+			<Divider variant="middle" />
 			<Typography gutterBottom>Quick size buttons</Typography>
-			<ButtonGroup color="primary">
+			<ButtonGroup color="secondary">
 				<Button
 					onClick={() => {
 						setTrianglesPerTriangle(3);
@@ -97,51 +82,48 @@ const Form = ({
 			</ButtonGroup>
 		</Grid>
 		<Grid item xs={12}>
+			<Divider variant="middle" />
+			<Typography gutterBottom>
+				Mask size - ({masks[maskSize].label})
+			</Typography>
+			<Grid container>
+				<Grid item xs={1} />
+				<Grid item xs={10}>
+					<Slider
+						color="secondary"
+						marks={masks}
+						max={masks.length - 1}
+						min={0}
+						onChange={(_, value) => setMaskSize(value)}
+						onChangeCommitted={(_, value) => setMaskSize(value)}
+						step={null}
+						value={maskSize}
+						valueLabelDisplay={'auto'}
+					/>
+				</Grid>
+			</Grid>
+		</Grid>
+		<Grid item xs={12}>
+			<Divider variant="middle" />
 			<Typography gutterBottom>
 				Triangles per edge - ({trianglesPerTriangle})
 			</Typography>
-			<Slider
-				marks
-				max={10}
-				min={2}
-				onChange={(_, value) => setTrianglesPerTriangle(value)}
-				onChangeCommitted={(_, value) => setTrianglesPerTriangle(value)}
-				step={1}
-				value={trianglesPerTriangle}
-				valueLabelDisplay={'auto'}
-			/>
-		</Grid>
-		<Grid item xs={12}>
-			<Typography gutterBottom>
-				Fill Chance - ({Math.floor(fillChance * 100)}%)
-			</Typography>
-			<Slider
-				marks
-				max={1}
-				min={0}
-				onChange={(_, value) => setFillChance(value)}
-				onChangeCommitted={(_, value) => setFillChance(value)}
-				step={0.05}
-				value={fillChance}
-				valueLabelDisplay={'auto'}
-				valueLabelFormat={(value) => `${Math.floor(value * 100)}%`}
-			/>
-		</Grid>
-		<Grid item xs={12}>
-			<Typography gutterBottom>
-				Stroke Chance - ({Math.floor(strokeChance * 100)}%)
-			</Typography>
-			<Slider
-				marks
-				max={1}
-				min={0}
-				onChange={(_, value) => setStrokeChance(value)}
-				onChangeCommitted={(_, value) => setStrokeChance(value)}
-				step={0.05}
-				value={strokeChance}
-				valueLabelDisplay={'auto'}
-				valueLabelFormat={(value) => `${Math.floor(value * 100)}%`}
-			/>
+			<Grid container>
+				<Grid item xs={1} />
+				<Grid item xs={10}>
+					<Slider
+						color="secondary"
+						marks
+						max={10}
+						min={2}
+						onChange={(_, value) => setTrianglesPerTriangle(value)}
+						onChangeCommitted={(_, value) => setTrianglesPerTriangle(value)}
+						step={1}
+						value={trianglesPerTriangle}
+						valueLabelDisplay={'auto'}
+					/>
+				</Grid>
+			</Grid>
 		</Grid>
 		<Grid item xs={6}>
 			<Button
