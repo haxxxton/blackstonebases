@@ -139,7 +139,7 @@ const Form = ({
 			<Button
 				color="secondary"
 				fullWidth
-				onClick={handleDownload}
+				onClick={() => handleDownload()}
 				variant="contained"
 			>
 				Download

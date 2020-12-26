@@ -22,7 +22,9 @@ import TrianglePath, { toRadians } from './TrianglePath';
 
 const svgDoctype = '<?xml version="1.0" standalone="no"?>\n';
 
-const mmToPx = (mm) => mm * 4.9;
+const mmToPx = (mm) => mm * 2.834644252;
+
+const visualScale = 1.728;
 
 const generateArray = (count) => [...Array(count)];
 
@@ -172,11 +174,15 @@ function App() {
 							<svg
 								key={generation}
 								ref={svgWrapper}
-								height={`${triangleSize * (trianglesPerTriangle * 2) + 20}`}
+								className="canvas"
+								height={`${
+									triangleSize * (trianglesPerTriangle * 2) * visualScale + 20
+								}`}
 								width={`${
 									triangleSize *
 										(trianglesPerTriangle * 2) *
-										Math.sin(toRadians(60)) +
+										Math.sin(toRadians(60)) *
+										visualScale +
 									20
 								}`}
 							>
@@ -186,10 +192,13 @@ function App() {
 											cx={
 												triangleSize *
 													trianglesPerTriangle *
-													Math.sin(toRadians(60)) +
+													Math.sin(toRadians(60)) *
+													visualScale +
 												10
 											}
-											cy={triangleSize * trianglesPerTriangle + 10}
+											cy={
+												triangleSize * trianglesPerTriangle * visualScale + 10
+											}
 											fill="#000"
 											r={mmToPx(12.5)}
 										/>
@@ -199,10 +208,13 @@ function App() {
 											cx={
 												triangleSize *
 													trianglesPerTriangle *
-													Math.sin(toRadians(60)) +
+													Math.sin(toRadians(60)) *
+													visualScale +
 												10
 											}
-											cy={triangleSize * trianglesPerTriangle + 10}
+											cy={
+												triangleSize * trianglesPerTriangle * visualScale + 10
+											}
 											fill="#000"
 											r={mmToPx(16)}
 										/>
@@ -212,10 +224,13 @@ function App() {
 											cx={
 												triangleSize *
 													trianglesPerTriangle *
-													Math.sin(toRadians(60)) +
+													Math.sin(toRadians(60)) *
+													visualScale +
 												10
 											}
-											cy={triangleSize * trianglesPerTriangle + 10}
+											cy={
+												triangleSize * trianglesPerTriangle * visualScale + 10
+											}
 											fill="#000"
 											r={mmToPx(20)}
 										/>
@@ -225,10 +240,13 @@ function App() {
 											cx={
 												triangleSize *
 													trianglesPerTriangle *
-													Math.sin(toRadians(60)) +
+													Math.sin(toRadians(60)) *
+													visualScale +
 												10
 											}
-											cy={triangleSize * trianglesPerTriangle + 10}
+											cy={
+												triangleSize * trianglesPerTriangle * visualScale + 10
+											}
 											fill="#000"
 											r={mmToPx(25)}
 										/>
@@ -237,8 +255,10 @@ function App() {
 								<g {...clipPath}>
 									<g
 										transform={`translate(${
-											triangleHeight * trianglesPerTriangle + 10
-										}, ${triangleSize * trianglesPerTriangle + 10})`}
+											triangleHeight * trianglesPerTriangle * visualScale + 10
+										}, ${
+											triangleSize * trianglesPerTriangle * visualScale + 10
+										})`}
 									>
 										{generateArray(6).map((_, triangleIndex) => (
 											<g
@@ -281,7 +301,7 @@ function App() {
 												)}
 												<line
 													stroke="#000"
-													strokeWidth="1"
+													strokeWidth="0.5"
 													x1="0"
 													x2={
 														triangleSize *

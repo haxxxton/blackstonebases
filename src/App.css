@@ -12,6 +12,10 @@ body {
 	justify-content: center;
 }
 
+svg.canvas {
+	transform: scale(1.728);
+}
+
 header {
 	position: relative;
 	min-height: 400px;

@@ -49,7 +49,7 @@ const TrianglePath = ({
 	<path
 		d={pathString(triangleSize)}
 		{...getStyles(fillChance, strokeChance)}
-		strokeWidth="1"
+		strokeWidth="0.5"
 		transform={`translate(0, ${rowIndex * triangleSize}) scale(${
 			isFlipped ? -1 : 1
 		}, 1)`}
