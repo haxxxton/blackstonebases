@@ -98,7 +98,11 @@ const ExportModal = ({
 					{itemsToExport.length} files.
 				</DialogContentText>
 				{isExporting && (
-					<LinearProgress value={progress} variant="determinate" />
+					<LinearProgress
+						color="secondary"
+						value={progress}
+						variant="determinate"
+					/>
 				)}
 			</DialogContent>
 			<DialogActions>

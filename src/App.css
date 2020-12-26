@@ -16,6 +16,10 @@ svg.canvas {
 	transform: scale(1.728);
 }
 
+.MuiPaper-root.lighter-card-bg {
+	background-color: grey;
+}
+
 header {
 	position: relative;
 	min-height: 400px;

@@ -169,7 +169,7 @@ function App() {
 			<Grid container>
 				<Grid item sm={3} />
 				<Grid item sm={6} xs={12}>
-					<Card>
+					<Card className="lighter-card-bg">
 						<Typography align="center">
 							<svg
 								key={generation}
