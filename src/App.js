@@ -298,6 +298,10 @@ function App() {
 							</svg>
 						</Typography>
 					</Card>
+					<Typography align="center" component="p" variant="caption">
+						NB: images will be exported without a background (the background
+						above is just to ease visibility)
+					</Typography>
 				</Grid>
 			</Grid>
 			<Box m={6} />
