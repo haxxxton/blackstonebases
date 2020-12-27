@@ -45,16 +45,22 @@ const TrianglePath = ({
 	triangleSize,
 	fillChance,
 	strokeChance,
-}) => (
-	<path
-		d={pathString(triangleSize)}
-		{...getStyles(fillChance, strokeChance)}
-		strokeWidth="0.5"
-		transform={`translate(0, ${rowIndex * triangleSize}) scale(${
-			isFlipped ? -1 : 1
-		}, 1)`}
-	/>
-);
+}) => {
+	const styles = getStyles(fillChance, strokeChance);
+	if (styles.fill === 'none' && styles.stroke === void 0) {
+		return null;
+	}
+	return (
+		<path
+			d={pathString(triangleSize)}
+			{...styles}
+			strokeWidth="0.5"
+			transform={`translate(0, ${rowIndex * triangleSize}) scale(${
+				isFlipped ? -1 : 1
+			}, 1)`}
+		/>
+	);
+};
 
 TrianglePath.propTypes = {
 	rowIndex: PropTypes.number.isRequired,

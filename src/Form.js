@@ -11,12 +11,12 @@ import {
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const masks = [
+export const masks = [
 	{ label: 'No mask', value: 0 },
-	{ label: '25mm', value: 1 },
-	{ label: '32mm', value: 2 },
-	{ label: '40mm', value: 3 },
-	{ label: '50mm', value: 4 },
+	{ label: '25mm', value: 1, size: 25 / 2 },
+	{ label: '32mm', value: 2, size: 32 / 2 },
+	{ label: '40mm', value: 3, size: 40 / 2 },
+	{ label: '50mm', value: 4, size: 50 / 2 },
 ];
 
 const Form = ({

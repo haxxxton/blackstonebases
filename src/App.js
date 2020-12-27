@@ -16,7 +16,7 @@ import React, { useCallback, useRef, useState } from 'react';
 import svgDownload from 'svg-file-downloader';
 
 import BasesTable from './BasesTable';
-import Form from './Form';
+import Form, { masks } from './Form';
 import headerImg from './images/blackstone-logo@2x.png';
 import TrianglePath, { toRadians } from './TrianglePath';
 
@@ -200,7 +200,7 @@ function App() {
 												triangleSize * trianglesPerTriangle * visualScale + 10
 											}
 											fill="#000"
-											r={mmToPx(12.5)}
+											r={mmToPx(12.5 - 2)}
 										/>
 									</clipPath>
 									<clipPath id="round32">
@@ -216,7 +216,7 @@ function App() {
 												triangleSize * trianglesPerTriangle * visualScale + 10
 											}
 											fill="#000"
-											r={mmToPx(16)}
+											r={mmToPx(16 - 2)}
 										/>
 									</clipPath>
 									<clipPath id="round40">
@@ -232,7 +232,7 @@ function App() {
 												triangleSize * trianglesPerTriangle * visualScale + 10
 											}
 											fill="#000"
-											r={mmToPx(20)}
+											r={mmToPx(20 - 2)}
 										/>
 									</clipPath>
 									<clipPath id="round50">
@@ -248,10 +248,26 @@ function App() {
 												triangleSize * trianglesPerTriangle * visualScale + 10
 											}
 											fill="#000"
-											r={mmToPx(25)}
+											r={mmToPx(25 - 2)}
 										/>
 									</clipPath>
 								</defs>
+								{clipPath && maskSize && (
+									<circle
+										cx={
+											triangleSize *
+												trianglesPerTriangle *
+												Math.sin(toRadians(60)) *
+												visualScale +
+											10
+										}
+										cy={triangleSize * trianglesPerTriangle * visualScale + 10}
+										fill="none"
+										r={mmToPx(masks[maskSize].size - 2)}
+										stroke="#000"
+										strokeWidth="0.5"
+									/>
+								)}
 								<g {...clipPath}>
 									<g
 										transform={`translate(${
@@ -320,7 +336,10 @@ function App() {
 					</Card>
 					<Typography align="center" component="p" variant="caption">
 						NB: images will be exported without a background (the background
-						above is just to ease visibility)
+						above is just to ease visibility). Also due to the slope of GW
+						bases, generated round bases are 4mm smaller in diameter than the
+						listed base size (as these are designed to be placed on the top of
+						the base).
 					</Typography>
 				</Grid>
 			</Grid>
