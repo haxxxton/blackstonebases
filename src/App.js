@@ -127,6 +127,19 @@ function App() {
 						Then either manually generate single bases or use the automated
 						generator to bulk download bases for the list of sets.
 					</Typography>
+					<Typography component="p" variant="body1">
+						If you would like to see some examples of the finished product have
+						a look at the{' '}
+						<Link
+							color="secondary"
+							href="https://imgur.com/gallery/9aa66Vc"
+							rel="noreferrer"
+							target="_blank"
+						>
+							following gallery on Imgur
+						</Link>
+						.
+					</Typography>
 				</Grid>
 				<Grid item xs={12}></Grid>
 				<Grid item sm={3} />
@@ -195,70 +208,28 @@ function App() {
 								}`}
 							>
 								<defs>
-									<clipPath id="round25">
-										<circle
-											cx={
-												triangleSize *
-													trianglesPerTriangle *
-													Math.sin(toRadians(60)) *
-													visualScale +
-												10
-											}
-											cy={
-												triangleSize * trianglesPerTriangle * visualScale + 10
-											}
-											fill="#000"
-											r={mmToPx(12.5 - 2)}
-										/>
-									</clipPath>
-									<clipPath id="round32">
-										<circle
-											cx={
-												triangleSize *
-													trianglesPerTriangle *
-													Math.sin(toRadians(60)) *
-													visualScale +
-												10
-											}
-											cy={
-												triangleSize * trianglesPerTriangle * visualScale + 10
-											}
-											fill="#000"
-											r={mmToPx(16 - 2)}
-										/>
-									</clipPath>
-									<clipPath id="round40">
-										<circle
-											cx={
-												triangleSize *
-													trianglesPerTriangle *
-													Math.sin(toRadians(60)) *
-													visualScale +
-												10
-											}
-											cy={
-												triangleSize * trianglesPerTriangle * visualScale + 10
-											}
-											fill="#000"
-											r={mmToPx(20 - 2)}
-										/>
-									</clipPath>
-									<clipPath id="round50">
-										<circle
-											cx={
-												triangleSize *
-													trianglesPerTriangle *
-													Math.sin(toRadians(60)) *
-													visualScale +
-												10
-											}
-											cy={
-												triangleSize * trianglesPerTriangle * visualScale + 10
-											}
-											fill="#000"
-											r={mmToPx(25 - 2)}
-										/>
-									</clipPath>
+									{masks.map((mask) => {
+										if (mask.value === 0) return null;
+										return (
+											<clipPath key={mask.value} id={mask.maskName}>
+												<circle
+													cx={
+														triangleSize *
+															trianglesPerTriangle *
+															Math.sin(toRadians(60)) *
+															visualScale +
+														10
+													}
+													cy={
+														triangleSize * trianglesPerTriangle * visualScale +
+														10
+													}
+													fill="#000"
+													r={mmToPx(mask.size)}
+												/>
+											</clipPath>
+										);
+									})}
 								</defs>
 								{clipPath && maskSize && (
 									<circle
@@ -271,7 +242,7 @@ function App() {
 										}
 										cy={triangleSize * trianglesPerTriangle * visualScale + 10}
 										fill="none"
-										r={mmToPx(masks[maskSize].size - 2)}
+										r={mmToPx(masks[maskSize].size)}
 										stroke="#000"
 										strokeWidth="0.5"
 									/>
@@ -345,7 +316,7 @@ function App() {
 					<Typography align="center" component="p" variant="caption">
 						NB: images will be exported without a background (the background
 						above is just to ease visibility). Also due to the slope of GW
-						bases, generated round bases are 4mm smaller in diameter than the
+						bases, generated round bases are little smaller in diameter than the
 						listed base size (as these are designed to be placed on the top of
 						the base).
 					</Typography>
