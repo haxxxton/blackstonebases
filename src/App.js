@@ -73,6 +73,14 @@ function App() {
 						exportItem(itemsLeft[0], itemsLeft.slice(1));
 					}, 100);
 				} else {
+					zip
+						.folder(`blackstonebases-${exportTime}`)
+						.file(
+							'randomness-settings.txt',
+							`Fill Chance: ${fillChance * 100}%\nStroke Change: ${
+								strokeChance * 100
+							}%`,
+						);
 					zip.generateAsync({ type: 'blob' }).then((content) => {
 						saveAs(content, `blackstonebases-${exportTime}.zip`);
 						onComplete();
@@ -361,6 +369,52 @@ function App() {
 				</Grid>
 				<Grid item md={6} xs={12}>
 					<BasesTable handleExport={handleExport} />
+				</Grid>
+			</Grid>
+			<Box m={6} />
+			<Grid container>
+				<Grid item xs={12}>
+					<Divider variant="middle" />
+				</Grid>
+				<Grid item sm={3} />
+				<Grid item sm={6} xs={12}>
+					<Typography variant="h4">Learnings</Typography>
+					<Typography variant="h6">Cricut</Typography>
+					<Typography component="p">
+						This project was initially intended to help me to cut out the
+						generated shapes using a Cricut Maker. However, initial attempts
+						found that the SVG’s generated are too complex (even after
+						flattening and merging the design into a single shape), and that
+						Cricut Design Space (the software used to send cut data to the
+						machine) simply wouldnt accept the uploaded files. I did find that I
+						had much more success using a transparent PNG.
+					</Typography>
+					<Typography component="p">
+						Cutting 0.7mm thick plasticard, I had decent success using the
+						“Plastic Packaging” material option, and then setting the blade
+						pressure to “More”. Cricut lists its default Cut Pressure as 314
+						with 2x Multi-cut using a Fine-Point Blade.
+					</Typography>
+				</Grid>
+			</Grid>
+			<Box m={6} />
+			<Grid container>
+				<Grid item xs={12}>
+					<Divider variant="middle" />
+				</Grid>
+				<Grid item sm={3} />
+				<Grid item sm={6} xs={12}>
+					<Typography variant="h4">Upcoming features</Typography>
+					<Typography component="p">
+						I plan to add the following features based upon requests through
+						reddit/facebook groups:
+						<ul>
+							<li>Custom bulk export options (ie. 100 x 25mm)</li>
+							<li>
+								Height/Depth map of the shapes to ease creation of 3D files
+							</li>
+						</ul>
+					</Typography>
 				</Grid>
 			</Grid>
 			<Box m={6} />
