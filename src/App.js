@@ -12,11 +12,13 @@ import {
 } from '@material-ui/core';
 import { saveAs } from 'filesaver.js-npm';
 import JSZip from 'jszip';
+import Image from 'material-ui-image';
 import React, { useCallback, useRef, useState } from 'react';
 import svgDownload from 'svg-file-downloader';
 
 import BasesTable from './BasesTable';
 import Form, { masks } from './Form';
+import basesImg from './images/bases.jpg';
 import headerImg from './images/blackstone-logo@2x.png';
 import TrianglePath, { toRadians } from './TrianglePath';
 
@@ -138,7 +140,12 @@ function App() {
 						>
 							following gallery on Imgur
 						</Link>
-						.
+						.<br />
+						However, I have since repainted this example to look like the
+						following:
+						<Link href={basesImg}>
+							<Image aspectRatio={2016 / 1135} disableSpinner src={basesImg} />
+						</Link>
 					</Typography>
 				</Grid>
 				<Grid item xs={12}></Grid>
