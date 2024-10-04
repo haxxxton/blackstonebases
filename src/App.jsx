@@ -9,15 +9,15 @@ import {
 	Link,
 	Slider,
 	Typography,
-} from '@material-ui/core';
+} from '@mui/material';
 import { saveAs } from 'filesaver.js-npm';
 import JSZip from 'jszip';
-import Image from 'material-ui-image';
 import React, { useCallback, useRef, useState } from 'react';
 import svgDownload from 'svg-file-downloader';
 
 import BasesTable from './BasesTable';
 import Form, { masks } from './Form';
+import Image from './Image';
 import basesImg from './images/bases.jpg';
 import headerImg from './images/blackstone-logo@2x.png';
 import TrianglePath, { toRadians } from './TrianglePath';
@@ -124,10 +124,10 @@ function App() {
 				<Grid item sm={6} xs={12}>
 					<Typography variant="body1">
 						Welcome to Blackstone Bases. Please feel free to use this tool to
-						generate SVG images themed for Blackstone Fortress™. You can set the
-						amount of “randomness” the triangle designs with the sliders below.
-						Then either manually generate single bases or use the automated
-						generator to bulk download bases for the list of sets.
+						generate SVG images themed for Blackstone Fortress™. You can set
+						the amount of “randomness” the triangle designs with the sliders
+						below. Then either manually generate single bases or use the
+						automated generator to bulk download bases for the list of sets.
 					</Typography>
 					<Typography component="p" variant="body1">
 						If you would like to see some examples of the finished product have

@@ -1,3 +1,4 @@
+import { ChangeHistory, ChangeHistoryTwoTone } from '@mui/icons-material';
 import {
 	Box,
 	Button,
@@ -11,8 +12,7 @@ import {
 	TableHead,
 	TableRow,
 	Typography,
-} from '@material-ui/core';
-import { Details, DetailsTwoTone } from '@material-ui/icons';
+} from '@mui/material';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
@@ -196,8 +196,9 @@ const BasesTable = ({ handleExport }) => {
 						<TableCell>
 							<Checkbox
 								checked={exportedSets.length === boxes.length}
-								checkedIcon={<DetailsTwoTone />}
-								icon={<Details />}
+								checkedIcon={<ChangeHistoryTwoTone />}
+								color="secondary"
+								icon={<ChangeHistory />}
 								onChange={({ target: { checked } }) => {
 									if (checked) {
 										setExportedSets(boxes);
@@ -230,8 +231,9 @@ const BasesTable = ({ handleExport }) => {
 													checked={
 														!!exportedSets.find((set) => set.slug === box.slug)
 													}
-													checkedIcon={<DetailsTwoTone />}
-													icon={<Details />}
+													checkedIcon={<ChangeHistoryTwoTone />}
+													color="secondary"
+													icon={<ChangeHistory />}
 													onChange={(e) => handleBoxCheck(e, box)}
 												/>
 											</TableCell>

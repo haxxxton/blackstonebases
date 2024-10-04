@@ -1,8 +1,8 @@
-import { createMuiTheme } from '@material-ui/core';
+import { createTheme } from '@mui/material';
 
-export default createMuiTheme({
+export default createTheme({
 	palette: {
-		type: 'dark',
+		mode: 'dark',
 		primary: {
 			main: '#1c2955',
 		},
@@ -30,37 +30,50 @@ export default createMuiTheme({
 			fontFamily: '"ITC Machine W03 Medium", serif',
 		},
 	},
-	overrides: {
+	components: {
 		MuiCssBaseline: {
-			'@global': {
-				'*, *::before, *::after': {
-					boxSizing: 'border-box',
+			styleOverrides: {
+				'@global': {
+					'*, *::before, *::after': {
+						boxSizing: 'border-box',
+					},
+				},
+			},
+		},
+		MuiCheckbox: {
+			styleOverrides: {
+				root: {
+					rotate: '180deg',
 				},
 			},
 		},
 		MuiDivider: {
-			root: {
-				margin: [[20, 0]],
+			styleOverrides: {
+				root: {
+					margin: '20px 0',
+				},
 			},
 		},
 		MuiTypography: {
-			h1: {
-				position: 'relative',
-			},
-			h2: {
-				position: 'relative',
-			},
-			h3: {
-				position: 'relative',
-			},
-			h4: {
-				position: 'relative',
-			},
-			h5: {
-				position: 'relative',
-			},
-			h6: {
-				position: 'relative',
+			styleOverrides: {
+				h1: {
+					position: 'relative',
+				},
+				h2: {
+					position: 'relative',
+				},
+				h3: {
+					position: 'relative',
+				},
+				h4: {
+					position: 'relative',
+				},
+				h5: {
+					position: 'relative',
+				},
+				h6: {
+					position: 'relative',
+				},
 			},
 		},
 	},

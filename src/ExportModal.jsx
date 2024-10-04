@@ -7,15 +7,11 @@ import {
 	DialogContentText,
 	DialogTitle,
 	LinearProgress,
-} from '@material-ui/core';
+} from '@mui/material';
 import PropTypes from 'prop-types';
 import React, { useEffect, useRef, useState } from 'react';
 
-const zeroPadding = (
-	input: number = 0,
-	width: number = 4,
-	zero: string | number = '0',
-) => {
+const zeroPadding = (input = 0, width = 4, zero = '0') => {
 	const inputString = String(input);
 	if (inputString.length >= width) {
 		return inputString;

@@ -1,5 +1,5 @@
 {
-	"parser": "babel-eslint",
+	"parser": "@babel/eslint-parser",
 	"plugins": ["simple-import-sort", "prettier", "react", "react-hooks"],
 	"env": {
 		"browser": true
@@ -11,7 +11,8 @@
 		}
 	},
 	"rules": {
-		"simple-import-sort/sort": "error",
+		"simple-import-sort/exports": "error",
+		"simple-import-sort/imports": "error",
 		"prettier/prettier": "error",
 		"react/jsx-sort-props": [
 			2,

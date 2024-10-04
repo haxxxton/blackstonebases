@@ -1,13 +1,12 @@
 import {
 	Button,
 	ButtonGroup,
-	Checkbox,
 	Divider,
 	FormControlLabel,
 	Grid,
 	Slider,
 	Typography,
-} from '@material-ui/core';
+} from '@mui/material';
 import PropTypes from 'prop-types';
 import React from 'react';
 
